@@ -1,8 +1,10 @@
 package com.marcostonina.nonconstructiblechange.domain;
 
+import org.springframework.stereotype.Service;
+
 import java.util.*;
 
-
+@Service
 public class CurrencyService {
 
     /**
@@ -10,11 +12,11 @@ public class CurrencyService {
      * @param coins: an array of coins
      * @return minimum amount of change that it's impossible to create. If coin list is 0, it returns 1
      */
-    public int getNonConstructibleChange(int[] coins) {
-        if (coins.length == 0) {
+    public int getNonConstructibleChange(List<Integer> coins) {
+        if (coins.isEmpty()) {
             return 1;
         }
-        Arrays.sort(coins);
+        Collections.sort(coins);
         int minChange = 0;
 
         for (int coin : coins) {

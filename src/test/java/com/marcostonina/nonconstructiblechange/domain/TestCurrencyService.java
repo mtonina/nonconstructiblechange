@@ -2,6 +2,9 @@ package com.marcostonina.nonconstructiblechange.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCurrencyService {
@@ -12,7 +15,7 @@ public class TestCurrencyService {
         int[] coins = {1,1,2,3,5,7,22};
 
         CurrencyService currencyService = new CurrencyService();
-        int minChange = currencyService.getNonConstructibleChange(coins);
+        int minChange = currencyService.getNonConstructibleChange(Arrays.stream(coins).boxed().collect(Collectors.toList()));
         assertEquals(20, minChange);
 
     }
@@ -22,7 +25,7 @@ public class TestCurrencyService {
         int[] coins = {1, 5, 1, 1, 1, 10, 15, 20, 100};
 
         CurrencyService currencyService = new CurrencyService();
-        int minChange = currencyService.getNonConstructibleChange(coins);
+        int minChange = currencyService.getNonConstructibleChange(Arrays.stream(coins).boxed().collect(Collectors.toList()));
         assertEquals(55, minChange);
 
     }
@@ -32,7 +35,7 @@ public class TestCurrencyService {
         int[] coins = {87};
 
         CurrencyService currencyService = new CurrencyService();
-        int minChange = currencyService.getNonConstructibleChange(coins);
+        int minChange = currencyService.getNonConstructibleChange(Arrays.stream(coins).boxed().collect(Collectors.toList()));
         assertEquals(1, minChange);
 
     }
@@ -42,7 +45,7 @@ public class TestCurrencyService {
         int[] coins = {1};
 
         CurrencyService currencyService = new CurrencyService();
-        int minChange = currencyService.getNonConstructibleChange(coins);
+        int minChange = currencyService.getNonConstructibleChange(Arrays.stream(coins).boxed().collect(Collectors.toList()));
         assertEquals(2, minChange);
 
     }
