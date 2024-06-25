@@ -3,7 +3,7 @@ package com.marcostonina.nonconstructiblechange.domain;
 import java.util.*;
 
 
-public class CoinService {
+public class CurrencyService {
 
     /**
      * Given a list of coins, returns the minimum amount of change that it's impossible to create
