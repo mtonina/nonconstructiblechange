@@ -17,6 +17,8 @@ public record Currency(
         @Size(min = 2, max = 3, message = "Currency code should be between 2 and 3 characters")
         String code,
 
-        @NotNull(message = "Coins should have at least one value")
+        @NotNull(message = "Coin list cannot be null")
+        @Size(min = 1, message = "Coin list should have at least one value")
         List<Integer> coins
-) {}
+) {
+}
