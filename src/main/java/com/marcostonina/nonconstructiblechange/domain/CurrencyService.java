@@ -40,7 +40,7 @@ public class CurrencyService {
 
     public Currency getCurrency(String code) {
         return currencyRepository.findByCode(code).orElseThrow(()
-                -> new RuntimeException("Could not find currency with code " + code));
+                -> new IllegalArgumentException("Could not find currency with code " + code));
     }
 
     public void removeCurrency(String code) {
