@@ -1,7 +1,6 @@
 package com.marcostonina.nonconstructiblechange;
 
 import com.marcostonina.nonconstructiblechange.domain.Currency;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,8 @@ class NonconstructiblechangeApplicationTests {
 				.expectStatus().isCreated()
 				.expectBody(Currency.class).value(actualCurrency -> {
 					assertThat(actualCurrency).isNotNull();
-					assertThat(actualCurrency.name().equals(currency.name()));
-					assertThat(actualCurrency.code().equals(currency.code()));
+					assertThat(actualCurrency.name()).isEqualTo(currency.name());
+					assertThat(actualCurrency.code()).isEqualTo(currency.code());
 					assertThat(actualCurrency.coins()).hasSameElementsAs(currency.coins());
 				});
 
