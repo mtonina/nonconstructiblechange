@@ -14,7 +14,8 @@ public class InMemoryCurrencyRepository implements CurrencyRepository {
 
     @Override
     public Currency save(Currency currency) {
-        return currencies.put(currency.code(), currency);
+        currencies.put(currency.code(), currency);
+        return currency;
     }
 
     @Override
